@@ -13,6 +13,7 @@ def request_api_data(query_char):
 
 
 def get_password_leaks(hashes, hash_to_check):
+    """Counts how many matches with the received passwords"""
     hashes = (line.split(':') for line in hashes.text.splitlines())
     for h, count in hashes:
         if h == hash_to_check:
@@ -21,13 +22,15 @@ def get_password_leaks(hashes, hash_to_check):
 
 
 def pwned_api_check(password):
+    """Hashes the password and splits into head and tail"""
     sha1 = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     first5_char, tail = sha1[:5], sha1[5:]
     response = request_api_data(first5_char)
-    return get_password_leaks(response, tail)
+    return get_password_leaks(response, tail)  # Finds password leak matches
 
 
 def main(args):
+    # Sends passwords from the console one by one to API function
     for password in args:
         count = pwned_api_check(password)
         if count:
