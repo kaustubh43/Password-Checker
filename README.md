@@ -13,6 +13,12 @@ Password Checker using Python
 #### Note: Although k anonymity is safe, it is not advised to input your login information on any website other than the one you intended.
 
 ### How to run?
-1. Clone this repository
-2. Change directory to the location of the cloned repository 
-3. run the command in the terminal ```python main.py password1 password2 password3 password4 passwordn ```
+>1. Clone this repository
+>2. Change directory to the location of the cloned repository 
+>3. run the command in the terminal ```python main.py password1 password2 password3 password4 passwordn ```
+>
+> where password1 password2 password3 password4 are the passwords you want to check. You can enter n number of password.
+
+## GIF Demonstration
+
+![This is a alt text.](/src/password-checker-demo.gif "This is a sample image.")
